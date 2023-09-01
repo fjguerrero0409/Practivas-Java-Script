@@ -1,0 +1,19 @@
+{
+"cadena": "Francine",
+"numero": "24",
+"booleano": "true",
+"arreglo":[
+    "correr",
+    "programar",
+    "cocinar"
+],
+"objeto":{
+    "facebook": "francineJosue",
+    "email":"fjguerrero@uce.edu.ec"
+},
+"nulo": null
+
+
+
+
+}

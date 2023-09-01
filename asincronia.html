@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport"
+        content = "width=device-width,
+        initial-scale=1.0">
+
+        <title> Asincronia en JavaScript</title>
+        </head>
+        <body>
+            <h1>
+                Asincronia en JavaScript</h1>
+                <script>
+
+
+// TEMPORIZADORES
+   /*                 
+console.log("inicio");
+setTimeout(()=>{
+console.log("ejecutando un setTimeout, esto se ejcuta una sola vez");
+}
+,1000);
+
+
+setInterval(() => {
+    console.log(`ejecutando un setTimeout, esto se ejecuta indefinidamente cada cierto intervalo 
+    de tiempo`);
+
+},21000000000000000000);
+*/
+
+/*
+let temporizador = setInterval(() => {
+    console.log(new Date().toLocaleTimeString());
+}, 1000);
+
+clearTimeout(temporizador);
+console.log(`despues del clearTimeout`)
+*/
+/*
+console.log('uno');
+
+setTimeout(function (){
+    console.log('bar1');
+},5000);
+
+setTimeout(function (){
+    console.log('bar2');
+},4000);
+
+console.log('dos');
+*/
+
+
+// --------------- PROMESAS------------------
+
+/*
+function cuadradoPromise(value){
+return  new Promise((resolve,reject)=>{
+
+    setTimeout(() => {
+    resolve({
+        value,
+        result : value*value
+    });
+}, 0 | Math.random()*1000);
+;
+});
+
+}
+
+cuadradoPromise(0)
+.then((obj )=> {
+    console.log(obj);
+})
+.catch(); 
+
+
+//-----------------FUNCION ASINCRONA----------
+
+async function funcionAsincronaDeclarada(){
+
+try {
+console.log("inicio de funcion");
+let obj = cuadradoPromise(0);
+}catch(){
+
+}
+
+
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </script>
+                    </html>
+</body>
+</html>
+
+
+

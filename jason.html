@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport"
+        content = "width=device-width,
+        initial-scale=1.0">
+
+        <title> Jason JavaScript</title>
+        </head>
+        <body>
+            <h1>
+                Jason JavaScript</h1>
+                <script>
+
+const jason = {
+cadena: "Francine",
+numero: "24",
+booleano: "true",
+arreglo:[
+    "correr",
+    "programar",
+    "cocinar"
+],
+objeto:{
+    facebook: "francineJosue",
+    email:"fjguerrero@uce.edu.ec"
+},
+nulo: null
+}
+
+
+
+// json parse : es analizar una notacion jason , analiza cadena de texto y lo convierte un tipo de dato u objeto  valido que java lo lea
+// permite mostrar la notacion
+
+//JSON PARSE
+console.log("[1,2,3]") // es una cadena de texto aunque paresca arreglo
+console.log(JSON.parse("[1,2,3]")) // aqui si lo toma a esa interpretacion como un arreglo
+
+console.log("19") // como cadena
+console.log(JSON.parse("19"))// como numero
+
+// JSON   stringgifly // convierte un objeto de javascript  a una cadena
+
+console.log(JSON.stringify({}));
+console.log(JSON.stringify([1,2,3]))// lo transforma a cadena de texto
+console.log(JSON.stringify({x:2 , y:3}))// lo transforma a cadena de texto
+console.log(JSON.stringify(jason)); // Jason que es de tipo objeto lo paso  a texto
+console.log(JSON.parse('{"cadena": "Francine","numero": "24","booleano": "true","arreglo":["correr","programar","cocinar],"objeto":{"facebook": "francineJosue","email":"fjguerrero@uce.edu.ec"},"nulo": null}'));
+
+
+
+
+
+
+</script>
+                    </html>
+</body>
+</html>
+

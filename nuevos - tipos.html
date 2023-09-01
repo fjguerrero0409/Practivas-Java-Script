@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport"
+        content = "width=device-width,
+        initial-scale=1.0">
+
+        <title> Nuevos tipos  de datos </title>
+        </head>
+        <body>
+
+            <h1>
+                Nuevos tipos  de datos</h1>
+                <script>
+
+// symbol crea una referencia unica
+/*
+let id= Symbol('id');
+let id2 = Symbol('id2');
+
+console.log(id === id2);
+console.log(id,id2);
+
+const NOMBRE = Symbol("nombre");
+
+const SALUDAR = Symbol("saludar");
+
+
+
+const persona={
+    [NOMBRE]:"Francine"
+
+}
+
+
+console.log(persona);
+persona.NOMBRE= 'Francine Guerrero';
+console.log(persona);
+console.log(persona.NOMBRE);
+console.log(persona[NOMBRE]);
+
+persona[SALUDAR]= function(){
+    console.log('hola');
+}
+
+console.log(persona);
+
+persona[SALUDAR]();
+
+console.log(Object.getOwnPropertySymbols(persona)); // lista los ismbolos de la propiedas
+
+*/
+
+/*
+//------------- set ---------------
+// es como un arreglo pero que solo permite elementos unicos.
+const  set = new Set ([1,2,3,3,true,false,true ,{},"hola","HOLA"])
+
+console.log(set);
+console.log(set.size); // muestra el tamano del arreglo
+
+const set2 = new Set();
+
+set2.add(1);
+set2.add(2);
+set2.add(2);
+set2.add(true);
+set2.add(true);
+
+console.log(set2);
+
+// para recorrer 
+console.log("recorriendo set");
+for (const item of set) {
+    console.log(item);
+}
+
+console.log("recorriendo set2");
+set2.forEach(item => console.log(item));
+
+let arr = Array.from(set2) // array.from permite traformar un set en un arreglo
+console.log(arr);
+console.log(arr[0]);
+
+// borrar elementos
+set.delete("hola");
+console.log(set);
+
+// confirmar si ese valor existe en el set
+
+console.log(set.has(2));
+
+// limpiar un set
+
+set2.clear();
+console.log(set2);
+
+*/
+
+/*
+// -------------MAP------------
+// OBJETOS que sirven para almacenar conjunto de datos asociados a manera de objeto.
+
+const mapa= new Map();
+mapa.set('nombre',"Francine ")
+mapa.set("apellido","Guerrero")
+mapa.set("edad",24)
+
+console.log(mapa);
+console.log(mapa.size);//tamano del mapa
+console.log(mapa.has('correo')); // si tiene esa llave
+console.log(mapa.get("nombre")); // obtener nombre de la llave
+mapa.set('nombre',"FRANCINE JOSUE");
+console.log(mapa.get("nombre"));
+mapa.delete("apellido");// borrar una llave
+
+console.log(mapa);
+
+for (let [key,value] of mapa){
+    console.log(`llave: ${key},valor: ${value}`);
+}
+
+const mapa2 = new Map ([["nombre:","francine"],
+["edad",24],
+["estudio","ing"]]);
+console.log(mapa2);
+
+ const llavesMapa2=[...mapa2.keys()]; // aqui se pasa las llaves a un arreglo
+ const valoresMapa2=[...mapa2.keys()];// aqui se pasa los valores a un areglo
+  console.log(llavesMapa2);
+  console.log(valoresMapa2);
+*/
+
+
+
+//---------- MAPAS DEVILES Y CONJUNTOS DEBILES
+
+
+// SOLO PUEDEN ALMACENAR REFERENCIAS DEBILES , OSEA LA LLAVES DEBN SER DE TIPO OBJETO
+// no se pueden iterar
+/*
+const ws = new WeakSet();
+let valor1 = {"valor1":1};
+let valor2 = {"valor2": 2};
+let valor3 = {"valor2": 3};
+
+ ws.add(valor1);
+ ws.add(valor2); 
+
+console.log(ws);
+console.log(ws.has(valor1));
+
+*/
+/*
+// ---------------------------- weak MAP -----------
+
+// no se puede iterar 
+
+const wm = new WeakMap ();
+let llave1 ={};
+let llave2={};
+let llave3={};
+
+wm.set(llave1,1);
+wm.set(llave2,2);
+
+console.log(wm);
+console.log(wm.has(llave1));
+console.log(wm.get(llave1));
+*/
+
+/*
+
+// ---------- ITERABLES & ITERATORS ------
+
+
+const iterable = [1,2,3,4,5];
+//const iterable="hola mundo";
+
+// Accedemos al iterador de nuestra variable iterable
+const iterador = iterable[Symbol.iterator]();
+ console.log(iterable);
+ console.log(iterador);
+
+//console.log(iterador.next())
+
+let next = iterador.next();
+ while(!next.done ){
+    console.log(next.value);
+    next = iterador.next();
+ }
+
+*/
+
+
+// ------------ GERENADORES -----------
+// convertit el codigo de un fuction en iterable
+/*
+ function* iterable (){
+yield "hola";
+console.log("hola consola");
+yield"hola2 ";
+console.log("seguimos con mas intrucciones");
+yield"hola3";
+yield"hola4";
+
+
+ }
+ 
+ let iterador = iterable();
+ /*
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+console.log(iterador.next());
+*/
+
+/*
+for(let y of iterador){
+    console.log(y);
+}
+
+const arr=[...iterable()];
+console.log(arr);
+
+
+ function cuadrado(valor){
+    setTimeout(() => {
+       console.log({valor,resultado:valor*valor}) 
+    }, Math.random()*1000);
+
+
+    return{valor,resultado:valor*valor}
+ }
+
+ function* generador (){
+    console.log("inicia generador");
+    yield cuadrado(0);
+    yield cuadrado(1);
+    yield cuadrado(2);
+    yield cuadrado(3);
+    yield cuadrado(4);
+    yield cuadrado(5);
+    console.log("termina generador");
+ }
+
+let gen = generador();
+for ( let yield of gen ){
+    console.log(y);
+}
+
+*/
+
+//---------------- PROXY ---------------------
+/*
+const persona = {
+    nombre: "",
+    apellido :"",
+    edad:0
+}
+
+const manejador ={
+    set(obj,pro,valor){
+        if(Object.keys(obj).indexOf(pro)===-1){
+            return console.error(`La propiedad ${pro} no existe en el objeto persona`)
+
+        }
+
+        if(
+            (pro==='nombre' || pro === "apellido") &&
+            !(/^[A-Za-zñáéíóú\s]+$/g.test(valor))
+        ){
+            console.error("la  propiedad solo acepta letras y espacios")
+
+
+
+        }
+ obj[pro]= valor;
+ 
+    }
+}
+
+const francine = new Proxy(persona, manejador);
+francine.nombre = "francine";
+francine.apellido="guerrero";
+francine.edad=24;
+francine.google="@gmail.com";
+console.log(francine);
+console.log(persona);
+*/
+
+
+/*
+// -------- PROPIEDADES DINAMICAS----
+
+ const objUsuarios ={
+    [`id_${Math.round(Math.random()*100+5)}`]:"valor aleatorio"
+
+ }
+ console.log(objUsuarios);
+
+ const usuarios = ["jhon","francine","Mario"];
+usuarios.forEach((usuario,index) => objUsuarios[`id_${index}`] =usuario);
+console.log(objUsuarios);
+*/
+
+
+/////////////------------------ THIS ---------------
+/*
+console.log(this);
+console.log(window);
+console.log(this === window);
+
+this.nombre = "contexto global";
+console.log(this.nombre);
+
+function imprimir() {
+    console.log(this.nombre);
+    
+}
+
+
+imprimir();
+ 
+const obj = {
+    nombre:"contexto objeto",
+    imprimir:function(){
+        console.log(this.nombre);
+
+    }
+}
+
+obj.imprimir(); 
+*/
+
+//---------- call , bind--------------
+
+console.log(this);
+this.lugar = "contexto global";
+function saludar(saludo,aQuien) {
+    console.log (`${saludo} ${aQuien} desde el  ${this.lugar}`)
+    
+}
+ saludar();
+
+ const obj = {
+    lugar: "contexto objeto"
+ }
+
+ saludar.call(obj, "hola ", "Francine"); // llamo al contexto del objeto , en este caso OBJ
+saludar.apply(obj, ["hola" , "Francine"]); // 
+
+
+const persona = {
+    nombre : "Francine",
+    saludar: function (){
+        console.log(`hola ${this.nombre}`)
+    }
+}
+
+ const otrapersona = {               // con bind permite enlazar al contexto que quiero 
+saludar:persona.saludar.bind(persona)
+
+ }
+
+persona.saludar();
+otrapersona.saludar();
+
+</script>
+</html>
+</body>
+</html>
